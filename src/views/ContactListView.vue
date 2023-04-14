@@ -53,7 +53,7 @@ export default {
         }
     },
     mounted(){
-        axios.get('http://127.0.0.1:5001/contacts', {}, { withCredentials: true })
+        axios.get('https://contact-list-api-3200.herokuapp.com/contacts', {}, { withCredentials: true })
                 .then(res => {
                     this.contact_lists = res.data
                     this.contact_lists_filter = this.contact_lists
@@ -72,7 +72,7 @@ export default {
             });
         },
         onDeleteContactClick(contact) {
-            axios.delete('http://127.0.0.1:5001/contacts/' + contact._id, {}, { withCredentials: true })
+            axios.delete('https://contact-list-api-3200.herokuapp.com/contacts/' + contact._id, {}, { withCredentials: true })
                 .then(res => {
                     window.location.reload()
                 })

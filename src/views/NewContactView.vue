@@ -92,7 +92,7 @@
           facebook: this.facebook,
           imageUrl: this.imageUrl,
         };
-        axios.post('http://127.0.0.1:5001/contacts', data, { withCredentials: true })
+        axios.post('https://contact-list-api-3200.herokuapp.com/contacts', data, { withCredentials: true })
           .then(() => {
             this.$router.push('/');
           })
