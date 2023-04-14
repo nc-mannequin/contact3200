@@ -1,23 +1,63 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import ContactListView from '../views/ContactListView.vue'
+import LogInView from '../views/LogInView.vue'
+import NewContactView from '../views/NewContactView.vue'
+import EditContactView from '../views/EditContactView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: HomeView
+      name: 'contactlist',
+      component: ContactListView,
+      meta: {
+        requiresAuth: true
+      }
     },
     {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import('../views/AboutView.vue')
+      path: '/:catchAll(.*)',
+      redirect: '/login'
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: LogInView
+    },
+    {
+      path: '/newcontact',
+      name: 'newcontact',
+      component: NewContactView,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/editcontact/:id',
+      name: 'editcontact',
+      component: EditContactView,
+      props: true,
+      meta: {
+        requiresAuth: true
+      }
     }
   ]
+})
+
+router.beforeEach(async (to, from, next) => {
+  const requiresAuth = to.matched.some((record) => record.meta.requiresAuth)
+  if (requiresAuth) {
+    if($cookies.isKey("authToken")){
+      console.log("You are authorized to access this area.");
+      next()
+    }
+    else{
+      console.log("You are not authorized to access this area.")
+      next('login')
+    }
+  } else {
+    next()
+  }
 })
 
 export default router

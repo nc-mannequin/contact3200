@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "fomantic-ui": "^2.9.2",
+    "vue-cookies": "^1.8.3"
+  }
+}
