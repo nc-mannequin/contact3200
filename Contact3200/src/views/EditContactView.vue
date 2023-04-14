@@ -89,7 +89,6 @@
       });
       axios.get('http://127.0.0.1:5001/contacts/' + this.id, {}, { withCredentials: true })
                 .then(res => {
-                    console.log(res.data);
                     this.firstname = res.data.firstname
                     this.lastname = res.data.lastname
                     this.mobile = res.data.mobile

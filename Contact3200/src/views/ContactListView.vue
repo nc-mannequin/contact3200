@@ -55,7 +55,6 @@ export default {
     mounted(){
         axios.get('http://127.0.0.1:5001/contacts', {}, { withCredentials: true })
                 .then(res => {
-                    console.log(res.data);
                     this.contact_lists = res.data
                     this.contact_lists_filter = this.contact_lists
                 })
@@ -75,7 +74,6 @@ export default {
         onDeleteContactClick(contact) {
             axios.delete('http://127.0.0.1:5001/contacts/' + contact._id, {}, { withCredentials: true })
                 .then(res => {
-                    console.log(res)
                     window.location.reload()
                 })
                 .catch(error => {

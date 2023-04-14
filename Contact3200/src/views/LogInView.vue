@@ -58,7 +58,6 @@ export default {
                 password: this.password
             }, { withCredentials: true })
                 .then(res => {
-                    console.log(res.data);
                     if (res.data.status === 'ACCEPT') {
                         // User is authenticated
                         const authToken = 'WEBPROGRAMMING-EGCO427-ASSIGNMENT1';
