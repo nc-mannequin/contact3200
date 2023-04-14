@@ -48,7 +48,6 @@ export default {
     mounted() {
         if (this.$cookies.isKey("authToken")) {
             this.$cookies.remove("authToken");
-            window.location.reload()
         }
     },
     methods: {
