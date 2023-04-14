@@ -52,7 +52,7 @@ export default {
     },
     methods: {
         login() {
-            axios.post('https://contact-list-api-3200.herokuapp.com/login', {
+            axios.post('https://contact-lists-assignment-62-130-200.azurewebsites.net/login', {
                 username: this.username,
                 password: this.password
             }, { withCredentials: true })

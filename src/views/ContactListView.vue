@@ -53,7 +53,7 @@ export default {
         }
     },
     mounted(){
-        axios.get('https://contact-list-api-3200.herokuapp.com/contacts', {}, { withCredentials: true })
+        axios.get('https://contact-lists-assignment-62-130-200.azurewebsites.net/contacts', {}, { withCredentials: true })
                 .then(res => {
                     this.contact_lists = res.data
                     this.contact_lists_filter = this.contact_lists
@@ -72,7 +72,7 @@ export default {
             });
         },
         onDeleteContactClick(contact) {
-            axios.delete('https://contact-list-api-3200.herokuapp.com/contacts/' + contact._id, {}, { withCredentials: true })
+            axios.delete('https://contact-lists-assignment-62-130-200.azurewebsites.net/contacts/' + contact._id, {}, { withCredentials: true })
                 .then(res => {
                     window.location.reload()
                 })

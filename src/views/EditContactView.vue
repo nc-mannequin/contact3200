@@ -87,7 +87,7 @@
           mobile: 'empty',
         },
       });
-      axios.get('https://contact-list-api-3200.herokuapp.com/contacts/' + this.id, {}, { withCredentials: true })
+      axios.get('https://contact-lists-assignment-62-130-200.azurewebsites.net/contacts/' + this.id, {}, { withCredentials: true })
                 .then(res => {
                     this.firstname = res.data.firstname
                     this.lastname = res.data.lastname
@@ -110,7 +110,7 @@
           facebook: this.facebook,
           imageUrl: this.imageUrl,
         };
-        axios.post('https://contact-list-api-3200.herokuapp.com/contacts/' + this.id, data, { withCredentials: true })
+        axios.post('https://contact-lists-assignment-62-130-200.azurewebsites.net/contacts/' + this.id, data, { withCredentials: true })
           .then(() => {
             this.$router.push('/');
           })

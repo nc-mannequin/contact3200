@@ -92,7 +92,7 @@
           facebook: this.facebook,
           imageUrl: this.imageUrl,
         };
-        axios.post('https://contact-list-api-3200.herokuapp.com/contacts', data, { withCredentials: true })
+        axios.post('https://contact-lists-assignment-62-130-200.azurewebsites.net/contacts', data, { withCredentials: true })
           .then(() => {
             this.$router.push('/');
           })
